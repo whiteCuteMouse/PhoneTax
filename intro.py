@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import re
 import altair as alt
-st.write("Hello!")
+
 #pd.set_option('display.max_columns', None) #df 출력 시 모든 열 출력
 #pd.set_option('display.max_rows', None) #df 출력 시 모든 행 출력
 #pd.reset_option("display") display option 초기화
@@ -474,6 +474,7 @@ with st.container():
             df_user_role_count = df_Merged_UserChat_User[select_col].value_counts().reset_index().rename(columns={'index':'사용자 유형', select_col:'건수'})
             
             role_sum_count = df_user_role_count['건수'].sum()
+            st.write(df_user_role_count['건수'], role_sum_count, "aaaaaaaaa")
             if not show_all:
                 #비율이 0.05가 안 되는 것들은 기타로 합치기
                 condition = (df_user_role_count['건수']/role_sum_count) > 0.05
