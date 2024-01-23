@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import re
 import altair as alt
-
-pd.set_option('display.max_columns', None) #df 출력 시 모든 열 출력
+st.write("Hello!")
+#pd.set_option('display.max_columns', None) #df 출력 시 모든 열 출력
 #pd.set_option('display.max_rows', None) #df 출력 시 모든 행 출력
 #pd.reset_option("display") display option 초기화
 #%%
