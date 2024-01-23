@@ -2,3 +2,4 @@ libgl1
 pandas
 re
 altair
+openpyxl
