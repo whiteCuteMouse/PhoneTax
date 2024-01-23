@@ -71,23 +71,20 @@ def load_data():
     
     #날짜 데이터 형식 변환(대소 비교 등을 위해)
     #df_User와 나머지의 날짜 형식이 다름!
-    try:
-        df_User['lastSeenAt'] = pd.to_datetime(df_User['lastSeenAt'], format='mixed', infer_datetime_format=True)#infer_datetime_format=True는 pandas가 자동으로 형식 추론
-    except:#여기에만 형식 안 맞는 거 하나 있음
-        df_User['lastSeenAt'] = pd.to_datetime(df_User['lastSeenAt'], format='%Y-%m-%dT%H:%M:%S.%dZ', infer_datetime_format=True)#infer_datetime_format=True는 pandas가 자동으로 형식 추론
+    df_User['lastSeenAt'] = pd.to_datetime(df_User['lastSeenAt'], format='mixed', infer_datetime_format=True)#infer_datetime_format=True는 pandas가 자동으로 형식 추론
     df_User['updatedAt'] = pd.to_datetime(df_User['updatedAt'], format='mixed', infer_datetime_format=True)
     df_User['createdAt'] = pd.to_datetime(df_User['createdAt'], format='mixed', infer_datetime_format=True)
     df_User['web.lastSeenAt'] = pd.to_datetime(df_User['web.lastSeenAt'], format='mixed', infer_datetime_format=True)
     
     
     df_Message['createdAt'] = pd.to_datetime(df_Message['createdAt'], format='mixed', infer_datetime_format=True)
-    df_UserChatTag['UserChatTag data'] = pd.to_datetime(df_UserChatTag['createdAt'], format='%Y-%m-%d %H:%M:%S', infer_datetime_format=True)
+    df_UserChatTag['UserChatTag data'] = pd.to_datetime(df_UserChatTag['createdAt'], format='mixed', infer_datetime_format=True)
     
     df_UserChat['firstOpenedAt'] = pd.to_datetime(df_UserChat['firstOpenedAt'], format='mixed', infer_datetime_format=True)
-    df_UserChat['openedAt'] = pd.to_datetime(df_UserChat['openedAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
-    df_UserChat['firstRepliedAtAfterOpen'] = pd.to_datetime(df_UserChat['firstRepliedAtAfterOpen'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
-    df_UserChat['createdAt'] = pd.to_datetime(df_UserChat['createdAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
-    df_UserChat['closedAt'] = pd.to_datetime(df_UserChat['closedAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
+    df_UserChat['openedAt'] = pd.to_datetime(df_UserChat['openedAt'], format='mixed', infer_datetime_format=True)
+    df_UserChat['firstRepliedAtAfterOpen'] = pd.to_datetime(df_UserChat['firstRepliedAtAfterOpen'], format='mixed', infer_datetime_format=True)
+    df_UserChat['createdAt'] = pd.to_datetime(df_UserChat['createdAt'], format='mixed', infer_datetime_format=True)
+    df_UserChat['closedAt'] = pd.to_datetime(df_UserChat['closedAt'], format='mixed', infer_datetime_format=True)
     
     #UserChat 시트의 waitingTime 등등을 timedelta 형식으로 바꾸기
     df_UserChat['waitingTime'] = df_UserChat['waitingTime'].apply(str_to_timedelta)
