@@ -48,7 +48,7 @@ def str_to_timedelta(str_t):
         return #pd.Timedelta(hours=int(s.group(0)), minutes=int(s.group(0)), seconds=int(s.group(0)))
 
 # 세 파일의 sheet들을 각각 합치기
-@st.cache_data
+#@st.cache_data
 def load_data():
     fnames = ["2022.01.01~2022.06.30챗봇데이터.xlsx", "2022.07.01~2022.12.31.xlsx", "2023.01.01~2023.06.30.xlsx"]
 
