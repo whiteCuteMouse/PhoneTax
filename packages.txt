@@ -1,6 +1,0 @@
-libgl1
-streamlit
-pandas
-re
-altair
-openpyxl
