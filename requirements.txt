@@ -1,1 +1,2 @@
-git+https://github.com/SomePackage#egg=pandas
+streamlit
+pandas
