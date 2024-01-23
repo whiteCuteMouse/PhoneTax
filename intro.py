@@ -474,8 +474,7 @@ with st.container():
             df_user_role_count = df_Merged_UserChat_User[select_col].value_counts().reset_index().rename(columns={'index':'사용자 유형', select_col:'건수'})
             
             role_sum_count = df_user_role_count['건수'].sum()
-            st.write(df_user_role_count['건수'])
-            st.write("bbbbb", role_sum_count, "aaaaaaaaa")
+            st.write(df_user_role_count)
             if not show_all:
                 #비율이 0.05가 안 되는 것들은 기타로 합치기
                 condition = (df_user_role_count['건수']/role_sum_count) > 0.05
