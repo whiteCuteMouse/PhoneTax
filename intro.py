@@ -13,8 +13,7 @@ try:
       page_title="포넷택스 팀 챗봇 데이터 분석 및 시각화: 대시 보드",
       page_icon="📊",
       layout="wide",#centered가 기본값. 고정 너비 안에 element들을 제한. wide는 화면 전체를 사용함.
-      initial_sidebar_state="expanded",
-   )
+      initial_sidebar_state="expanded")
 st.write("Hello2!")
 PRIMARY_COLOR = "#872434"
 #html <p>에 글씨 쓰기
