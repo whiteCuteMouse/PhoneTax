@@ -76,8 +76,8 @@ def load_data():
     except:#여기에만 형식 안 맞는 거 하나 있음
         df_User['lastSeenAt'] = pd.to_datetime(df_User['lastSeenAt'], format='%Y-%m-%dT%H:%M:%S.%dZ', infer_datetime_format=True)#infer_datetime_format=True는 pandas가 자동으로 형식 추론
     df_User['updatedAt'] = pd.to_datetime(df_User['updatedAt'], format='mixed', infer_datetime_format=True)
-    df_User['createdAt'] = pd.to_datetime(df_User['createdAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
-    df_User['web.lastSeenAt'] = pd.to_datetime(df_User['web.lastSeenAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
+    df_User['createdAt'] = pd.to_datetime(df_User['createdAt'], format='mixed', infer_datetime_format=True)
+    df_User['web.lastSeenAt'] = pd.to_datetime(df_User['web.lastSeenAt'], format='mixed', infer_datetime_format=True)
     
     
     df_Message['createdAt'] = pd.to_datetime(df_Message['createdAt'], format='%Y-%m-%d %H:%M:%S', infer_datetime_format=True)
