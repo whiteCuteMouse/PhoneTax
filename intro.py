@@ -80,10 +80,10 @@ def load_data():
     df_User['web.lastSeenAt'] = pd.to_datetime(df_User['web.lastSeenAt'], format='mixed', infer_datetime_format=True)
     
     
-    df_Message['createdAt'] = pd.to_datetime(df_Message['createdAt'], format='%Y-%m-%d %H:%M:%S', infer_datetime_format=True)
+    df_Message['createdAt'] = pd.to_datetime(df_Message['createdAt'], format='mixed', infer_datetime_format=True)
     df_UserChatTag['UserChatTag data'] = pd.to_datetime(df_UserChatTag['createdAt'], format='%Y-%m-%d %H:%M:%S', infer_datetime_format=True)
     
-    df_UserChat['firstOpenedAt'] = pd.to_datetime(df_UserChat['firstOpenedAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
+    df_UserChat['firstOpenedAt'] = pd.to_datetime(df_UserChat['firstOpenedAt'], format='mixed', infer_datetime_format=True)
     df_UserChat['openedAt'] = pd.to_datetime(df_UserChat['openedAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
     df_UserChat['firstRepliedAtAfterOpen'] = pd.to_datetime(df_UserChat['firstRepliedAtAfterOpen'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
     df_UserChat['createdAt'] = pd.to_datetime(df_UserChat['createdAt'], format='%Y-%m-%dT%H:%M:%S.%fZ', infer_datetime_format=True)
