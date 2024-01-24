@@ -5,4 +5,3 @@ openpyxl
 konlpy
 wordcloud
 matplotlib
-pickle
