@@ -500,7 +500,7 @@ with st.container():
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
                 df_Merged_UserChat_User = df_Merged_UserChat_User.dropna(subset=[select_col])
                 
-                if remove_graduate:
+                if not remove_graduate:
                     df_Merged_UserChat_User = df_Merged_UserChat_User[df_Merged_UserChat_User['profile.education_level'].str.contains('학년')]
             else:
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
