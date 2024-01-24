@@ -6,3 +6,4 @@ konlpy
 wordcloud
 matplotlib
 JPype1
+sklearn
