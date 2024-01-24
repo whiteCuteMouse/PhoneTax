@@ -472,7 +472,7 @@ with st.container():
             #사용자 통계 보기 선택
             user_view_opt = st.selectbox(
                 label = '',
-                options = ('학적 상태로 보기', '과정 상태로 보기', '학년별 보기(기타 및 미식별 제외)'),
+                options = ('학적 상태로 보기', '과정 상태로 보기', '학년별 보기(기타 및 미식별 제외)', '단과 대학별 보기(학부 정보만 포함)'),
                 label_visibility = "collapsed"#레이블 지우기(공간도 없앰); hidden은 공간은 남겨 놓음
                 )
             
@@ -482,6 +482,8 @@ with st.container():
                 select_col = 'profile.course_role'
             elif user_view_opt == '학년별 보기(기타 및 미식별 제외)':
                 select_col = 'profile.education_level'
+            elif user_view_opt == '단과 대학별 보기(학부 정보만 포함)':
+                select_col = 'profile.college_nm'
             
             #기간별 이용자를 user_role별로 분류하기
             
@@ -497,6 +499,8 @@ with st.container():
             else:
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
                 df_Merged_UserChat_User[select_col] = df_Merged_UserChat_User[select_col].fillna('미식별(로그인 안 함)')
+                if user_view_opt == '단과 대학별 보기(학부 정보만 포함)':
+                    df_Merged_UserChat_User = df_Merged_UserChat_User[df_Merged_UserChat_User['profile.education_level'].str.contains('학년')]
     
             #user의 id가 없는 경우 로그인하지 않고 이용한 경우인 듯.
             #imsi = df_Merged_User_UserChat[df_Merged_User_UserChat['id'].isna()]#'id'가 NaN인 항목만 뽑아내기. personId는 있고, user의 id는 없는 경우
@@ -641,9 +645,9 @@ with st.container():
                     key="select_role"
                 )
                 
-                #날짜별 이용 추이 출력
+                #기간별 이용 추이 출력
                 
-                #날짜별 이용 추이 데이터 필터링
+                #기간별 이용 추이 데이터 필터링
                 df_period_usage = df_Merged_UserChat_User[['firstOpenedAt', select_col]]
                 
                 #선택에 따라 데이터 필터링
