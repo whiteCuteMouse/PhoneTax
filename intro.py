@@ -285,7 +285,7 @@ with st.container():
         
         #%%
         with st.container(border = True):
-            st.write("### 문의 유형별 건수")
+            st.write("### 문의 유형 분석")
             #우선 UserChat의 tag들을 뽑아내기
             #tag에는 하나 이상의 태그들이 있으므로, ', '(띄어쓰기 포함! 왜냐하면 [백로그]건의,제언처럼 태그 자체에 쉼표 있는 경우도 있기 때문)를 기준으로 더 세부적으로 뽑아내기
             tags_ext_lst = []#태그만 추출한 리스트(한 element에 한 데이터씩)
