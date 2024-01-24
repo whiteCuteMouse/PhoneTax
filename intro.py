@@ -37,8 +37,8 @@ def span_write(txt, font_size = 10, font_weight = "normal", font_style = "normal
     return r
 
 #st.title("*포넷택스* 대시 보드")
-title1 = span_write("포넷택스", 40, "bold", "italic", PRIMARY_COLOR, writeHTML=False)
-title2 = span_write(" 대시보드", 40, "bold", "normal", writeHTML=False)
+title1 = span_write("PhoneTax", 40, "bold", "italic", PRIMARY_COLOR, writeHTML=False)
+title2 = span_write(" Dashboard", 40, "bold", "normal", writeHTML=False)
 st.markdown(f'{title1}{title2}', unsafe_allow_html=True)
 #st.markdown('<span style="font-family:Malgun Gothic; font-size: 44px; font-weight: bold; font-style: italic; color: #872434">포넷택스</span><span style="font-family:Malgun Gothic; font-size: 44px; font-weight: bold"> 대시보드</span>', unsafe_allow_html=True)
 #%%
@@ -208,6 +208,10 @@ with st.sidebar:
         word_cloud_update = st.toggle('키워드 시각화 이미지 업데이트', value=st.session_state['word_cloud_update'], key='word_cloud_update_side')
     else:
         ord_cloud_update = st.toggle('키워드 시각화 이미지 업데이트', value=True, key='word_cloud_update_side')
+        
+    st.header("포넷택스(PhoneTax) 팀 소개")
+    st.write("포넷택스는 음운론의 'Phonology', 통사론의 'Syntax'의 합성어입니다. 각각 음운론과 통사론의 자연어처리에 관심이 있는 고려대학교 국어국문학과 석사 과정생 안예진, 이예람이 소속되어 있습니다.")
+    st.markdown("안예진 : ruizhen42@korea.ac.kr<br>이예람 : dpfka248@korea.ac.kr", unsafe_allow_html=True)
 #%%
 with st.container():#container은 화면상 가로로 나눔
     # 특정 열의 모든 Timestamp를 normalize하는 함수(normalize는 시, 분, 초 정보 지움)
