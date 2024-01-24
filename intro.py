@@ -622,7 +622,7 @@ with st.container():
                 return pydatetime.date()
             
             #아래 두 그래프에서 사용할 사용자 유형 범주
-            tab1, tab2 = st.tabs(["기간별 이용 추이", "챗봇 문의 키워드 순위"])
+            tab1, tab2 = st.tabs(["날짜별 이용 추이", "챗봇 문의 키워드 순위"])
             if user_view_opt == '학적 상태로 보기':#이때만 '계열'로 구분(학부 재학, 학부 휴학, 학부 제적... 너무 많기 때문)
                 sel_role = ['교원/강사', '대학원', '학부', '학점교류/교환학생', '기타']
             else:
@@ -641,9 +641,9 @@ with st.container():
                     key="select_role"
                 )
                 
-                #기간별 이용 추이 출력
+                #날짜별 이용 추이 출력
                 
-                #기간별 이용 추이 데이터 필터링
+                #날짜별 이용 추이 데이터 필터링
                 df_period_usage = df_Merged_UserChat_User[['firstOpenedAt', select_col]]
                 
                 #선택에 따라 데이터 필터링
@@ -670,7 +670,7 @@ with st.container():
                         if select_role != "전체":
                             df_period_usage = df_period_usage[df_period_usage[select_col]==select_role]
                             
-                st.write("##### 기간별 이용 추이")
+                st.write("##### 날짜별 이용 추이")
                 if not show_all:
                     #5% 안 되는 거 기타로 뺴기(위에서 만든 거 활용)
                     user_role_gita = set(df_user_role_count_gita['사용자 유형'])#기타에 해당하는 user_role 추출
