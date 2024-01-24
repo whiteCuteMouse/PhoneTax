@@ -4,3 +4,5 @@ altair
 openpyxl
 konlpy
 wordcloud
+matplotlib
+pickle
