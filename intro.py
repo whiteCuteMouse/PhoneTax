@@ -200,6 +200,7 @@ with st.sidebar:
     st.write("포넷택스 테마를 사용하면 :green[**학부는 초록색 계열**], :red[**대학원은 붉은색 계열**], :blue[**강사 및 교원은 파란색 계열**], :grey[**나머지는 회색 계열**]로 표시합니다.")
     
     st.header("화면 업데이트 설정")
+    st.write("'업데이트'를 끄면 화면 조작 시 처리 시간이 줄어듭니다.")
     if 'keyword_rating_update' in st.session_state:#상대 거에 맞추기
         keyword_rating_update = st.toggle('키워드 순위 그래프 업데이트', value=st.session_state['keyword_rating_update'], key='keyword_rating_update_side')
     else:
