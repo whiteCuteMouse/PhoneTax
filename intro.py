@@ -396,6 +396,7 @@ with st.container():
             st.write("채팅을 입력해 보세요! AI가 자동으로 추천 태그를 부착합니다.")
             
             okt = Okt()
+            
             if 'vectorizer' not in st.session_state:
                 #vectorizer 불러오기
                 with open('vectorizer.pkl', 'rb') as pickle_file:
@@ -774,8 +775,7 @@ with st.container():
                 
                 @st.cache_data
                 def keyword_extract(message):
-                    nlp = Okt()
-                    message_N = nlp.nouns(message)#명사만 추출
+                    message_N = okt.nouns(message)#명사만 추출
                     counter = Counter(message_N)#명사의 개수를 세기
                     return counter
                 
