@@ -210,7 +210,7 @@ with st.sidebar:
         ord_cloud_update = st.toggle('키워드 시각화 이미지 업데이트', value=True, key='word_cloud_update_side')
         
     st.header("포넷택스(PhoneTax) 팀 소개")
-    st.write("포넷택스는 음운론의 'Phonology', 통사론의 'Syntax'의 합성어입니다. 각각 음운론과 통사론의 자연어처리에 관심이 있는 고려대학교 국어국문학과 석사 과정생 안예진, 이예람이 소속되어 있습니다.")
+    st.write("포넷택스는 음성학의 'Phonetics', 통사론의 'Syntax'의 합성어입니다. 각각 음운론과 통사론의 자연어처리에 관심이 있는 고려대학교 국어국문학과 석사 과정생 안예진, 이예람이 소속되어 있습니다.")
     st.markdown("안예진 : ruizhen42@korea.ac.kr<br>이예람 : dpfka248@korea.ac.kr", unsafe_allow_html=True)
 #%%
 with st.container():#container은 화면상 가로로 나눔
