@@ -210,7 +210,7 @@ with st.sidebar:
         ord_cloud_update = st.toggle('키워드 시각화 이미지 업데이트', value=True, key='word_cloud_update_side')
         
     st.header("포넷택스(PhoneTax) 팀 소개")
-    st.write("포넷택스는 음성학의 'Phonetics', 통사론의 'Syntax'의 합성어입니다. 각각 음운론과 통사론의 자연어처리에 관심이 있는 고려대학교 국어국문학과 석사 과정생 안예진, 이예람이 소속되어 있습니다.")
+    st.write("포넷택스는 음성학의 'Phonetics', 통사론의 'Syntax'의 합성어입니다. 각각 음성학과 통사론의 자연어처리에 관심이 있는 고려대학교 국어국문학과 석사 과정생 안예진, 이예람이 소속되어 있습니다.")
     st.markdown("안예진 : ruizhen42@korea.ac.kr<br>이예람 : dpfka248@korea.ac.kr", unsafe_allow_html=True)
 #%%
 with st.container():#container은 화면상 가로로 나눔
@@ -686,33 +686,7 @@ with st.container():
                 df_period_usage['firstOpenedAt'] = df_period_usage['firstOpenedAt'].apply(to_pydt).apply(to_date)
                 #st.write(df_period_usage)
                 
-                #날짜별로 개수 세기
-                #우선 role의 개수만큼 리스트 만들기(0으로 초기화)
-                #date_user_role_count = dict()
-                #for r in user_role_set:
-                #    date_user_role_count[r] = []
-                #
-                #date_lst = []
-                
-                #날짜별, user_role별 개수 세기
-                
-                #for date in set(df_period_usage['firstOpenedAt']):
-                #    date_lst.append(date)
-                #    for role in user_role_set:
-                #        cond = (df_period_usage['firstOpenedAt'] == date) & (df_period_usage[select_col] == role)
-                #        date_user_role_count[role].append(len(df_period_usage[cond]))
-                        
-                #개수 센 걸로 데이터프레임 만들기
-                #df_date = pd.DataFrame({'날짜':date_lst})
-                #df_user_role_count = pd.DataFrame(date_user_role_count)
-                #df_byPeriod_byRole_usage = pd.concat([df_date, df_user_role_count], axis=1)
-                
-                #df_byPeriod_byRole_usage = df_period_usage.groupby('firstOpenedAt', select_col).size().unstack().fillna(0)
-                #groupby() 메서드는 데이터프레임을 특정 열(또는 열들)을 기준으로 그룹화하는 데 사용됩니다.
-                #size() 메서드는 그룹화된 데이터프레임에서 각 그룹의 크기(행의 개수)를 반환합니다.
-                #unstack() 메서드는 그룹화된 데이터프레임에서 특정 열을 행 인덱스로 변환하여 새로운 열을 생성합니다.
-                
-                #altair 차트 그릴 땐 이걸로
+                #altair 차트
                 df_byPeriod_byRole_usage = df_period_usage.groupby(['firstOpenedAt', select_col]).size().reset_index(name='Count')
                 df_byPeriod_byRole_usage = df_byPeriod_byRole_usage.rename(columns={'firstOpenedAt':'날짜', select_col:'사용자 유형', 'Count':'건수'})
                 
