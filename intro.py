@@ -494,9 +494,14 @@ with st.container():
             
             #합친 후 학적/과정/학년 열 NaN 값 처리
             if user_view_opt == '학년별 보기(기타 및 미식별 제외)':
+                remove_graduate = st.toggle('대학원 정보 제외', value=True)
+                
                 df_Merged_UserChat_User[select_col] = df_Merged_UserChat_User[select_col][~df_Merged_UserChat_User[select_col].str.contains('기타|미식별')]
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
                 df_Merged_UserChat_User = df_Merged_UserChat_User.dropna(subset=[select_col])
+                
+                if remove_graduate:
+                    df_Merged_UserChat_User = df_Merged_UserChat_User[df_Merged_UserChat_User['profile.education_level'].str.contains('학년')]
             else:
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
                 df_Merged_UserChat_User[select_col] = df_Merged_UserChat_User[select_col].fillna('미식별(로그인 안 함)')
