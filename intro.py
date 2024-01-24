@@ -497,7 +497,7 @@ with st.container():
                 if 'remove_graduate' in st.session_state:
                     remove_graduate = st.toggle('대학원 정보 제외', value=st.session_state['remove_graduate'])
                 else:
-                    remove_graduate = st.toggle('대학원 정보 제외', value=False)
+                    remove_graduate = st.toggle('대학원 정보 제외', value=True)
                 
                 df_Merged_UserChat_User[select_col] = df_Merged_UserChat_User[select_col][~df_Merged_UserChat_User[select_col].str.contains('기타|미식별')]
                 #UserChat 중심으로 합쳤기 때문에 nan 값이 있을 수 있음.
